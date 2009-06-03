@@ -1,5 +1,8 @@
 ===== Lamp Backup Utility ====
 
+0.2
+- It nows backup the entire www folder by default, it can be changed at begining of the file
+
 0.1
 - It backups testing folders, live folders and /etc
 - Exports all MySQL databases into one the backups folder.
@@ -10,9 +13,7 @@
 1. Create a folder to store your backups.
 2. Open backups.sh using any editor (like vim). 
 3. Change the value of OUTPUTDIR to reflect the folder you just created.
-4. At the bottom of the file by default you will find all folders to be saved.
-   By default it will add all folders under /var/www. But only /public and /testing.
-   Modify to reflect your server
+4. Modify the value of DIRTOBACKUP to reflect the folder you want to backup
 5. Close the file
 6. Open my.cnf using any editor.
 7. Input your MySQL user and password.
