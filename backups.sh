@@ -2,7 +2,8 @@
 export PATH=/bin:/usr/bin:/sbin:/usr/sbin
 
 # Select a folder where to store the backups
-OUTPUTDIR="/var/serverbackups/"
+OUTPUTDIR="/var/serverbackups"
+DIRTOBACKUP="/var/www/"
 
 # mysql options
 OPTIONS="--all --complete-insert --add-drop-table --extended-insert --quote-names"
@@ -35,10 +36,7 @@ for DATABASE in $DATABASES; do
 done
 
 echo '-- Backing up live folders'
-tar Pcf $OUTPUTDIR/$BACKUPFILE-public.tar /var/www/*/public
-
-echo '-- Backing up staging folders'
-tar Pcf $OUTPUTDIR/$BACKUPFILE-testing.tar /var/www/*/testing
+tar Pcf $OUTPUTDIR/$BACKUPFILE-public.tar $DIRTOBACKUP
 
 echo '-- Backing up /etc/ folder'
 tar Pcf $OUTPUTDIR/$BACKUPFILE-etc.tar /etc
