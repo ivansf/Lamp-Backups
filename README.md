@@ -50,3 +50,17 @@ Ivan Soto
 http://ivansotof.com
 
 Karim Jetha
+
+
+## Dreamhost Tutorial ##
+
+- Create backup user in Dreamhost control panel
+- Select db user and add server IP wildcard to required list
+- Change the FTP user to Shell in the control panel.
+- Upload backup_ftp_week.sh, chmod to 775 and change variables in script
+- Create folder called serverbackups under the user's main folder.
+- Test (bash backup_ftp_week.sh)
+- Set up cron
+
+	MAILTO="youremailaddress@server.com"
+	40 23 * * * /home/<username>/backup_ftp_week.sh
