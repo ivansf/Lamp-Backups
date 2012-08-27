@@ -7,6 +7,7 @@ export PATH=/bin:/usr/bin:/sbin:/usr/sbin
 
 OUTPUTDIR=""             # Where to store backups
 DIRTOBACKUP=""             # What to backup
+OUTPUTFILE=""
 FTPHOST=""
 FTPUSER=""
 FTPPASS=""
@@ -46,13 +47,13 @@ for DATABASE in $DATABASES; do
 done
 
 echo '-- Backing up live folders'
-tar Pcf $OUTPUTDIR/www_files.tar $DIRTOBACKUP
+tar Pcf $OUTPUTDIR/$OUTPUTFILE $DIRTOBACKUP
 
 #=========================================
 # UPLOAD FILE USING FTP
 #=========================================
 
-cd /home/topdrawinc/serverbackups
+cd $OUTPUTDIR
 ftp -inv $FTPHOST << EOF
 user $FTPUSER $FTPPASS
 mput *
