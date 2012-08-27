@@ -1,4 +1,7 @@
-===== Lamp Backup Utility ====
+=== Lamp Backup Utility ===
+
+0.3 
+- Weekly Backups.
 
 0.2
 - It nows backup the entire www folder by default, it can be changed at begining of the file
@@ -8,7 +11,7 @@
 - Exports all MySQL databases into one the backups folder.
 
 
-==== Installation ====
+=== Installation ===
 
 1. Create a folder to store your backups.
 2. Open backups.sh using any editor (like vim). 
@@ -21,7 +24,7 @@
 8. Close the file
 9. Run ./backups.sh
 
-==== Crontab ====
+=== Crontab ===
 
 I include a crontab example to set up this backup to run every day at 00:05 and report 
 to that email address
@@ -31,12 +34,19 @@ to that email address
 	5 0 * * * /root/bash_backup/backups.sh
 
 
-==== TODO ====
+A weekly setup example will run the script every night at 23:40 hrs.
+
+	MAILTO="youremailaddress@server.com"
+	40 23 * * * /home/<username>/backup_ftp_week.sh
+
+
+=== TODO ===
 
 - Add an option to rsync the folder after doing the backup
-- Add an option to upload everything by FTP to another server
 
 === Credits ===
 
 Ivan Soto
 http://ivansotof.com
+
+Karim Jetha
